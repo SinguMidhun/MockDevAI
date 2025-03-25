@@ -28,7 +28,9 @@ import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.backhandler.BackHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.mohamedrejeb.calf.io.KmpFile
@@ -42,6 +44,7 @@ import `in`.singu.mockdevai.onboarding.questionscomponent.questions
 import kotlinx.coroutines.launch
 
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SurveyScreen(
     onEvent: (OnBoardingEvents) -> Unit,
@@ -222,6 +225,19 @@ fun SurveyScreen(
                     )
                 }
             }
+        }
+    }
+
+    BackHandler {
+        if (pagerState.currentPage > 0){
+            scope.launch {
+                pagerState.animateScrollToPage(
+                    pagerState.currentPage - 1,
+                    animationSpec = tween(700)
+                )
+            }
+        } else {
+            onEvent(OnBoardingEvents.onboardingFinished)
         }
     }
 }

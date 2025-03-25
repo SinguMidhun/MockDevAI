@@ -93,6 +93,8 @@ kotlin {
 
             implementation(libs.calf.file.picker)
             implementation(libs.calf.file.picker.coil)
+
+            implementation(libs.ui.backhandler)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

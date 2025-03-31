@@ -194,12 +194,12 @@ private fun GrowthLineChart(progress: Float) {
                 cubicTo(
                     width * 0.5f, height * 0.7f,
                     width * 0.55f, height * 0.5f,
-                    width * 0.6f, height * 0.65f
+                    width * 0.6f, height * 0.63f
                 )
                 cubicTo(
+                    width * 0.65f, height * 0.75f,
                     width * 0.7f, height * 0.8f,
-                    width * 0.85f, height * 0.85f,
-                    width, height * 0.7f
+                    width, height * 0.8f
                 )
             }
             

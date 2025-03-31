@@ -39,7 +39,7 @@ val questions = listOf(
     ),
     SurveyQuestionType.SingleChoice(
         "What is your current career stage?",
-        listOf("Student", "Entry-level", "Mid-level", "Senior-level")
+        listOf("Student", "Entry-level (0 - 3)", "Mid-level (3 - 5)", "Senior-level (5+)")
     ),
     SurveyQuestionType.SingleChoice(
         "What kind of software roles are you interested in?",
@@ -61,9 +61,6 @@ val questions = listOf(
     SurveyQuestionType.SingleChoice(
         "How would you rate your current technical skills?",
         listOf("Beginner", "Intermediate", "Advanced")
-    ),
-    SurveyQuestionType.FileUpload(
-        "Please upload your updated resume in PDF format"
     ),
     SurveyQuestionType.SingleChoice(
         "When was your last interview?",
@@ -117,14 +114,6 @@ val questions = listOf(
     SurveyQuestionType.SingleChoice(
         "How much time can you realistically dedicate to preparation each week?",
         listOf("Less than 2 hours", "2 - 5 hours", "5 - 10 hours", "More than 10 hours")
-    ),
-    SurveyQuestionType.SingleChoice(
-        "Would you like to track your progress and see how you're improving over time?",
-        listOf(
-            "Yes, I'd love to track my performance",
-            "No, I don't think I need that.",
-            "I'm not sure yet."
-        )
     ),
     SurveyQuestionType.SingleChoice(
         "How did you heard about us?",

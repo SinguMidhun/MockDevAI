@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 
 @Serializable
-object OnBoarding
+object SplashStart
 
 @Serializable
 object Splash

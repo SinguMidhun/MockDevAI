@@ -27,7 +27,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,9 +42,13 @@ import androidx.compose.ui.unit.dp
 import com.mohamedrejeb.calf.core.LocalPlatformContext
 import com.mohamedrejeb.calf.io.KmpFile
 import com.mohamedrejeb.calf.io.getName
+import com.mohamedrejeb.calf.io.getPath
 import com.mohamedrejeb.calf.io.readByteArray
 import com.mohamedrejeb.calf.picker.FilePickerFileType
 import com.mohamedrejeb.calf.picker.rememberFilePickerLauncher
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -52,11 +61,17 @@ fun FileUploadQuestion(
     nextButtonClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val localPlatformContext = LocalPlatformContext.current
 
     val pickerLauncher = rememberFilePickerLauncher(
         type = FilePickerFileType.Pdf,
         onResult = { pickedFile ->
             pickedFile.firstOrNull()?.let { file ->
+                CoroutineScope(Dispatchers.Default + CoroutineExceptionHandler { coroutineContext, throwable ->
+                    println(throwable.message)
+                }).launch {
+
+                }
                 onFilePicked(file)
             }
         }
@@ -190,6 +205,12 @@ fun FileUploadQuestion(
 fun KmpFile.getFileName() : String? {
     val localPlatformContext = LocalPlatformContext.current
     return this.getName(localPlatformContext)
+}
+
+@Composable
+fun KmpFile.getFilePath() : String {
+    val localPlatformContext = LocalPlatformContext.current
+    return this.getPath(localPlatformContext) ?: ""
 }
 
 @Composable

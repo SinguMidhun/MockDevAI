@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1028009092029",
+    "firebase_url": "https://first-round-ai-unicorn-default-rtdb.firebaseio.com",
+    "project_id": "first-round-ai-unicorn",
+    "storage_bucket": "first-round-ai-unicorn.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028009092029:android:adc24293cbc56a6a46a8d4",
+        "android_client_info": {
+          "package_name": "in.singu.mockdevai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1028009092029-f2sjilqk68mjp0aptn482dpg30er69n3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWZhLraUtiXxe5JsHOFz15HMsTZN4h04U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1028009092029-f2sjilqk68mjp0aptn482dpg30er69n3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

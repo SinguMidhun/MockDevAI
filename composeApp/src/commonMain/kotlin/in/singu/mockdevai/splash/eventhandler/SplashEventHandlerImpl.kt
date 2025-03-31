@@ -1,7 +1,7 @@
 package `in`.singu.mockdevai.splash.eventhandler
 
 import androidx.navigation.NavController
-import `in`.singu.mockdevai.onboarding.routes.OnBoardingRoutes
+import `in`.singu.mockdevai.auth.routes.Auth
 
 
 class SplashEventHandlerImpl(private val navController: NavController) {
@@ -9,11 +9,18 @@ class SplashEventHandlerImpl(private val navController: NavController) {
     fun handle(event : SplashEvent){
         when(event) {
             is SplashEvent.onVerificationSuccess -> {
-                navController.navigate(OnBoardingRoutes)
+                navController.navigate(Auth)
             }
 
             is SplashEvent.onVerificationFailed -> {
-                navController.navigate(OnBoardingRoutes)
+                navController.navigate(Auth)
+            }
+
+            SplashEvent.authPending -> {
+                navController.navigate(Auth)
+            }
+            SplashEvent.onBoardingPending -> {
+                navController.navigate(Auth)
             }
         }
     }
